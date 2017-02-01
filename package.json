@@ -1,0 +1,20 @@
+{
+  "name": "socialis",
+  "version": "1.0.0",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "express": "^4.14.1",
+    "fb": "^1.1.1",
+    "feed-read": "0.0.1",
+    "node-cron": "^1.1.2",
+    "node-mysql": "^0.4.2",
+    "nodemailer": "^2.7.2",
+    "twitter": "^1.7.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
