@@ -1,6 +1,7 @@
 // Node modules
 var feed = require("feed-read");
 var _ = require("lodash");
+var scrape = require('html-metadata');
 
 // Modules
 var connection = require("./connect");
@@ -18,7 +19,19 @@ module.exports = function() {
 
         _.forEach(keywords, function(key, value){
           if (_.includes(body.title.toLowerCase(), ' ' + key + ' ')) {
-            connection.query('INSERT INTO articles SET ?', body, function(err, result) {if (err) console.log(err); });
+            
+            scrape(body.link).then(function(metadata){
+              if (metadata.general.image) {
+                body.image = metadata.general.image;
+                connection.query('INSERT INTO articles SET ?', body, function(err, result) {if (err) console.log(err); });
+              } else if (metadata.openGraph.image) {
+                body.image = metadata.openGraph.image.url;
+                connection.query('INSERT INTO articles SET ?', body, function(err, result) {if (err) console.log(err); });
+              } else if (metadata.twitter.image) {
+                body.image = metadata.twitter.image.src;
+                connection.query('INSERT INTO articles SET ?', body, function(err, result) {if (err) console.log(err); });
+              }
+            });
           } ;
         });
       });
