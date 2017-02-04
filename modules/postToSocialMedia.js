@@ -2,11 +2,11 @@
 var feed = require("feed-read");
 
 // Modules
-var connection = require("./modules/connect");
-var getRandomNumber = require("./modules/getRandomNumber");
-var addHashes = require("./modules/addHashes");
-var postToFacebook = require("./modules/postToFacebook");
-var postToTwitter = require("./modules/postToTwitter");
+var connection = require("./connect");
+var getRandomNumber = require("./getRandomNumber");
+var addHashes = require("./addHashes");
+var postToFacebook = require("./postToFacebook");
+var postToTwitter = require("./postToTwitter");
 
 module.exports = function() {
   connection.query('SELECT * FROM articles', function(err, result) {

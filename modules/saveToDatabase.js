@@ -2,8 +2,8 @@
 var feed = require("feed-read");
 
 // Modules
-var connection = require("./modules/connect");
-var feeds = require("./modules/feeds");
+var connection = require("./connect");
+var feeds = require("./feeds");
 
 module.exports = function() {
   for (i = 0; i < feeds.length; i++) {
