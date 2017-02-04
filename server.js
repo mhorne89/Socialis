@@ -1,8 +1,6 @@
 // Node modules
 var express = require('express');
 var cron = require('node-cron');
-var feed = require("feed-read");
-var _ = require("lodash");
 
 var app = express();
 

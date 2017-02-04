@@ -1,28 +1,29 @@
 // Node modules
 var feed = require("feed-read");
+var _ = require("lodash");
 
 // Modules
 var connection = require("./connect");
 var feeds = require("./feeds");
+var keywords = require("./keywords");
 
 module.exports = function() {
-  for (i = 0; i < feeds.length; i++) {
-    feed(feeds[i], function(err, articles) {
+  _.forEach(feeds, function(key){
+    feed(key, function(err, articles) {
       if (err) { console.log(err); return; }
+      if (!articles) { return; }
 
-      if (articles[i]) {
-        for (i = 0; i < articles.length; i++) {
-          var body = {
-            'title': articles[i].title,
-            'content': articles[i].content,
-            'link': articles[i].link
-          };
+      _.forEach(articles, function(key, value) {
+        var body = _.pick(key, ['title', 'content', 'link']);
 
-          connection.query('INSERT INTO articles SET ?', body, function(err, result) {
-            if (err) console.log(err);
-          });
-        }
-      }
+        _.forEach(keywords, function(key, value){
+          if (_.includes(body.title.toLowerCase(), ' ' + key + ' ')) {
+            connection.query('INSERT INTO articles SET ?', body, function(err, result) {if (err) console.log(err); });
+          } ;
+        });
+      });
+
     });
-  }
+  });
+
 };
