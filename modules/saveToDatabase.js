@@ -23,13 +23,13 @@ module.exports = function() {
             scrape(body.link).then(function(metadata){
               if (metadata.general.image) {
                 body.image = metadata.general.image;
-                connection.query('INSERT INTO articles SET ?', body, function(err, result) {if (err) console.log(err); });
+                connection.query('INSERT INTO articles SET ?', body, function(err, result) { if (err) { console.log(err); } else { console.log(result); } });
               } else if (metadata.openGraph.image) {
                 body.image = metadata.openGraph.image.url;
-                connection.query('INSERT INTO articles SET ?', body, function(err, result) {if (err) console.log(err); });
+                connection.query('INSERT INTO articles SET ?', body, function(err, result) { if (err) { console.log(err); } else { console.log(result); } });
               } else if (metadata.twitter.image) {
                 body.image = metadata.twitter.image.src;
-                connection.query('INSERT INTO articles SET ?', body, function(err, result) {if (err) console.log(err); });
+                connection.query('INSERT INTO articles SET ?', body, function(err, result) { if (err) { console.log(err); } else { console.log(result); } });
               }
             });
           } ;

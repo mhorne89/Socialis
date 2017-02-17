@@ -1,7 +1,7 @@
 // Modules
 var keywords = require("./keywords");
 
-module.exports = function() {
+module.exports = function(title) {
   var wordArray = title.split(' ');
 
   for (i = 0; i < wordArray.length; ++i) {
