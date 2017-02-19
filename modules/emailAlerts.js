@@ -6,11 +6,11 @@ module.exports = function(message, error) {
   var transporter = nodemailer.createTransport('smtps://' + process.env.EMAIL_ADDRESS + ':' + process.env.EMAIL_PASS + '@' + process.env.EMAIL_HOST);
 
   var emailTemplate = {
-    from: 'Node Social Share',
+    from: process.env.EMAIL_ADDRESS,
     to: process.env.EMAIL_ADDRESS,
     subject: 'Error!!',
-    text: message + ' ' + error,
-    html: message + '<br><br>' + error
+    text: message + ' ' + JSON.stringify(error),
+    html: message + '<br><br>' + JSON.stringify(error)
   };
   
   transporter.sendMail(emailTemplate, function(error, info){
