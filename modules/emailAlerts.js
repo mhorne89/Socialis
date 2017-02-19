@@ -3,6 +3,8 @@ var nodemailer = require('nodemailer');
 
 
 module.exports = function(message, error) {
+  console.log(message, error);
+  
   var transporter = nodemailer.createTransport('smtps://' + process.env.EMAIL_ADDRESS + ':' + process.env.EMAIL_PASS + '@' + process.env.EMAIL_HOST);
 
   var emailTemplate = {

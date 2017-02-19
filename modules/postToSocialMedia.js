@@ -7,6 +7,7 @@ var getRandomNumber = require("./getRandomNumber");
 var addHashes = require("./addHashes");
 var postToFacebook = require("./postToFacebook");
 var postToTwitter = require("./postToTwitter");
+var postToLinkedin = require("./postToLinkedin");
 
 module.exports = function() {
   connection.query('SELECT * FROM articles', function(err, result) {
@@ -24,5 +25,6 @@ module.exports = function() {
 
     postToFacebook.post(body);
     postToTwitter.post(body);
+    postToLinkedin.post(body);
   });
 };
