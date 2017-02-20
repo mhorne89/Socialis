@@ -9,6 +9,7 @@
     "html-metadata": "git://github.com/wikimedia/html-metadata.git",
     "lodash": "^4.17.4",
     "node-cron": "^1.1.2",
+    "node-linked-in": "0.0.7",
     "node-mysql": "^0.4.2",
     "nodemailer": "^2.7.2",
     "twitter": "^1.7.0"
