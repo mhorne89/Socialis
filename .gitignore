@@ -1,2 +1,4 @@
 .env
 /node_modules
+DEV_PLAN.md
+api-notes

@@ -1,0 +1,92 @@
+// Type settings, font styles, etc
+// Styleguide 1.0.
+
+@include font-face('Gotham', './assets/fonts/Gotham-Book');
+@include font-face('GothamLight', './assets/fonts/Gotham-Light');
+
+$fontFamilyBody: Gotham, Helvetica, sans-serif;
+$fontFamilyDisplay: GothamLight, Helvetica, sans-serif;
+
+body {
+  @include font-feature-settings("kern");
+  font-family: $fontFamilyDisplay;
+  font-weight: 100;
+  font-size: 14px;
+  line-height: 1.3em;
+  color: $colorDarkGrey;
+  text-rendering: optimizeLegibility;
+}
+
+//-------------------------------------
+// Headlines
+//-------------------------------------
+
+h1, h2, h3, h4 {
+  font-family: $fontFamilyDisplay;
+  font-weight: 100;
+  line-height: 1;
+  margin: 0;
+}
+
+a {
+  &:link,
+  &:visited,
+  &:hover,
+  &:active,
+  &:focus {
+    color: $colorDarkGrey;
+
+    &:hover { color: $colorMediumGrey }
+  }
+}
+
+h1 {
+  font-size: 2.5em;
+  line-height: 1.3;
+  padding: .5em 0;
+
+  @include media($breakTabletPortrait) { font-size: 2.5em }
+  @include media($breakTabletLandscape) { font-size: 2em }
+}
+
+h2 {
+  font-size: 1.3em;
+  color: $colorDarkGrey;
+  
+  &.faded { opacity: .5 }
+}
+
+h3 {
+  font-size: 1.1em;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-size: 1.2em;
+  text-align: center;
+  margin: 0;
+}
+
+
+//-------------------------------------
+// Copy semantics
+//-------------------------------------
+
+small {
+  font-size: em(11);
+  display: inline-block;
+  line-height: 1.3em;
+  text-transform: uppercase;
+  color: darken($colorLightGrey, 20%);
+  font-weight: 100;
+}
+
+em, strong { font-weight: 100 }
+
+p {
+  margin: 1.1em 0;
+  font-size: 1em;
+  line-height: 1.3em;
+}
+
+figure { margin: 0 }

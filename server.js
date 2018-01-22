@@ -1,23 +1,21 @@
 // Node modules
-var express = require('express');
-var cron = require('node-cron');
+const express = require('express')
+const cron = require('node-cron')
 
-var app = express();
+const app = express()
 
-// Modules
-var saveToDatabase = require("./modules/saveToDatabase");
-var postToSocialMedia = require("./modules/postToSocialMedia");
+// Services
+const updateService = require('./services/updateService')
+const postingService = require('./services/postingService')
+const affiliateService = require('./services/affiliateService')
 
+// Cron job runs the posting service every 2 hours
+cron.schedule('0 */2 * * *', function(){ postingService(); })
 
-// Cron job runs every 2 hours and 
-cron.schedule('0 */2 * * *', function(){ postToSocialMedia(); });
+// Cron job runs the update service every day at 2.30am
+cron.schedule('30 2 * * *', function(){ updateService(); })
 
-// Cron job runs every day at 2.30am and adds articles to database
-cron.schedule('30 2 * * *', function(){ saveToDatabase(); });
+// Cron job runs the update service every day at 2.30am
+cron.schedule('0 */4 * * *', function(){ affiliateService(); })
 
-
-// Give response to incoming requests
-app.get('/*', function(req,res){ res.status(200).send('Welcome to Socialis') });
-
-app.listen(process.env.PORT || 5000);
-
+app.listen(8081)

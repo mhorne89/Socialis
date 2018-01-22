@@ -1,0 +1,12 @@
+/*
+* app.scss
+* 
+* This file contains styles which should be applied globally for elements which 
+* are not restriced to a single component.
+*/
+
+body { background: $colorOffWhite }
+
+#app {
+  .submit, .button { @extend %button }
+}

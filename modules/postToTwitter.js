@@ -1,7 +1,6 @@
 // Node modules
 var Twitter = require('twitter');
 
-
 // Modules
 var mailError = require('./emailAlerts');
 

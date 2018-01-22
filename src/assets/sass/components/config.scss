@@ -1,0 +1,46 @@
+#config {
+  margin-top: 1em;
+  
+  md-tab-group { margin-top: 1em }
+  
+  .add-feed,
+  .display-feeds,
+  .add-keywords,
+  .display-keywords {
+    @include span-columns(6 of 12);
+    margin-top: 2em;
+  }
+  
+  .display-feeds,
+  .display-keywords {
+    .feed,
+    .keyword {
+      border-radius: 3px;
+      background: $colorMediumBlue;
+      color: $colorOffWhite;
+      padding: .5em 1em;
+      margin: .3em;
+      
+      .feed-name,
+      .remove-feed
+      .keyword-name,
+      .remove-keyword {
+        font-family: $fontFamilyBody;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      
+      .remove-feed,
+      .remove-keyword {
+        float: right;
+        cursor: pointer;
+        font-size: 2em;
+        margin: -.1em 0 0 .3em;
+      }
+    }
+    
+    .keyword { display: inline-block }
+    
+    .button { width: 100% }
+  }
+}

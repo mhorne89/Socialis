@@ -1,0 +1,111 @@
+.mat-menu-content { padding: 0 !important }
+
+.mat-menu-item {
+  height: 35px !important;
+  font-family: $fontFamilyBody !important;
+  line-height: 35px !important;
+  text-transform: uppercase;
+
+  img { margin-top: .5em }
+
+  span {
+    font-family: $fontFamilyDisplay;
+    font-size: .9em;
+  }
+}
+
+.mat-option,
+.mat-card,
+.mat-select-placeholder,
+md-tab-group {
+  font-family: $fontFamilyDisplay !important;
+}
+
+md-tab-group h3 { margin-top: 1.5em }
+
+md-select {
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+.mat-input-element,
+.mat-input-container,
+.stack-view {
+  font-family: $fontFamilyBody !important;
+  color: $colorDarkGrey !important;
+}
+
+.mat-select,
+.mat-select-value {
+  @include position(relative, 1.5em null null null);
+  font-family: $fontFamilyDisplay !important;
+  font-size: .9em !important;
+  color: $colorDarkGrey !important;
+}
+
+.mat-tab-body-content { margin-top: 1em }
+
+md-input-container { width: 100% }
+
+.mat-input-container { font-family: $fontFamilyDisplay !important }
+
+.mat-input-placeholder,
+.mat-input-element { color: $colorDarkGrey !important }
+
+md-error {
+  background: $colorLightRed;
+  border: 1px solid $colorMediumRed;
+  border-radius: 3px;
+  color: $colorDarkGrey;
+  padding: .5em 1em;
+  text-align: center;
+  margin-bottom: 2em
+}
+
+.mat-datepicker-content {
+  @include position(fixed, 11em null null 50%);
+  margin-left: -10.5em;
+  width: 21em;
+
+  .mat-calendar-body-cell-content { padding-top: .1em }
+}
+
+.mat-tab-header { border: none }
+
+.mat-tab-label {
+  font-family: $fontFamilyDisplay !important;
+  color: $colorDarkGrey !important;
+  opacity: .8 !important;
+}
+
+.mat-radio-label-content,
+.mat-checkbox-label {
+  color: $colorDarkGrey;
+  font-size: 1.3em;
+  margin: .3em 2em 0 0;
+  font-family: $fontFamilyDisplay;
+}
+
+.mat-select-value-text,
+.mat-select-placeholder,
+.mat-select-arrow,
+.mat-hint { color: $colorDarkGrey }
+
+.mat-select-underline { background-color: $colorDarkGrey }
+
+.mat-option.mat-selected { color: $colorHighlightBlue }
+
+.mat-radio-outer-circle,
+.mat-checkbox-frame {
+  border-color: rgba(255,255,255,.54);
+}
+
+.mat-input-wrapper { padding-bottom: .8em }
+
+.mat-input-underline { background-color: $colorHighlightBlue }
+
+.mat-input-ripple { background-color: $colorLightGrey }
+
+.mat-placeholder-required { display: none }
+
+.mat-ink-bar { background-color: $colorMediumGrey }

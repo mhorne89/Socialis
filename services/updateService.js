@@ -1,12 +1,12 @@
 // Node modules
-var feed = require("feed-read");
-var _ = require("lodash");
-var scrape = require('html-metadata');
+const feed = require("feed-read")
+const _ = require("lodash")
+const scrape = require('html-metadata')
 
 // Modules
-var connection = require("./connect");
-var feeds = require("./feeds");
-var keywords = require("./keywords");
+const connection = require("../modules/connect")
+const feeds = require("../modules/feeds")
+const keywords = require("../modules/keywords")
 
 module.exports = function() {
   _.forEach(feeds, function(key){
@@ -31,12 +31,10 @@ module.exports = function() {
                 body.image = metadata.twitter.image.src;
                 connection.query('INSERT INTO articles SET ?', body, function(err, result) { if (err) { console.log(err); } else { console.log(result); } });
               }
-            });
-          } ;
-        });
-      });
-
-    });
-  });
-
-};
+            })
+          }
+        })
+      })
+    })
+  })
+}
