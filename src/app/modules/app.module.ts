@@ -7,6 +7,7 @@ import { AppRoutingModule } from '../routers/routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Import custom modules
+import { LoginModule } from './login.module';
 import { RegisterModule } from './register.module';
 import { ConfigModule } from './config.module';
 
@@ -32,6 +33,7 @@ import { AppComponent } from '../components/app.component';
     HttpModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    LoginModule,
     RegisterModule,
     ConfigModule
   ],

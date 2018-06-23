@@ -49,6 +49,14 @@ export class HttpService {
   * Posts new user registration to API
   * @return {Object} user
   */
+  loginUser(user) {
+    return this.http.post(`${ this.nodeUrl }/users/login`, { user });
+  }
+
+  /*
+  * Posts new user registration to API
+  * @return {Object} user
+  */
   registerUser(user) {
     return this.http.post(`${ this.nodeUrl }/users/register`, { user });
   }

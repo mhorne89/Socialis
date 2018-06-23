@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // Import custom components
+import { LoginComponent } from '../components/login.component';
 import { RegisterComponent } from '../components/register.component';
 import { ConfigComponent } from '../components/config.component';
 
@@ -11,7 +12,8 @@ import { HttpService } from '../services/http.service';
 
 // Define routes
 const routes: Routes = [
-  { path: '', redirectTo: '/config', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'config', component: ConfigComponent }
 ];

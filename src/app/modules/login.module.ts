@@ -6,11 +6,11 @@ import { AppRoutingModule } from '../routers/routing.module';
 import { ConichiTextModule, ConichiNotificationModule } from 'conichi-material';
 
 // Import custom components
-import { RegisterComponent } from '../components/register.component';
+import { LoginComponent } from '../components/login.component';
 
 
 /*
-* @NgModule: RegisterModule
+* @NgModule: LoginModule
 *
 * An NgModule is a class adorned with the @NgModule decorator function. @NgModule takes a metadata
 * object that tells Angular how to compile and run module code. It identifies the module's own 
@@ -26,7 +26,7 @@ import { RegisterComponent } from '../components/register.component';
     ConichiTextModule,
     ConichiNotificationModule
   ],
-  declarations: [ RegisterComponent ],
-  bootstrap: [ RegisterComponent ]
+  declarations: [ LoginComponent ],
+  bootstrap: [ LoginComponent ]
 })
-export class RegisterModule { }
+export class LoginModule { }
