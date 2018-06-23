@@ -4,25 +4,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from '../routers/routing.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-// Import custom modules
-import { RegisterModule } from './register.module';
-import { ConfigModule } from './config.module';
+import { ConichiTextModule, ConichiNotificationModule } from 'conichi-material';
 
 // Import custom components
-import { AppComponent } from '../components/app.component';
+import { RegisterComponent } from '../components/register.component';
 
 
 /*
-* @NgModule: AppModule
+* @NgModule: RegisterModule
 *
 * An NgModule is a class adorned with the @NgModule decorator function. @NgModule takes a metadata
 * object that tells Angular how to compile and run module code. It identifies the module's own 
 * components, directives, and pipes, making some of them public so external components can use them.
 * @NgModule may add service providers to the application dependency injectors.
-* 
-* This module is the root/parent module for all other modules.
 */
 
 @NgModule({
@@ -31,11 +25,10 @@ import { AppComponent } from '../components/app.component';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    RegisterModule,
-    ConfigModule
+    ConichiTextModule,
+    ConichiNotificationModule
   ],
-  declarations: [ AppComponent ],
-  bootstrap: [ AppComponent ]
+  declarations: [ RegisterComponent ],
+  bootstrap: [ RegisterComponent ]
 })
-export class AppModule { }
+export class RegisterModule { }

@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from '../routers/routing.module';
-import { MaterialModule } from '@angular/material';
+import { ConichiTextModule } from 'conichi-material';
 
 // Import custom components
 import { ConfigComponent } from '../components/config.component';
@@ -26,8 +26,8 @@ import { ConfigComponent } from '../components/config.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ConichiTextModule
   ],
   declarations: [ ConfigComponent ],
   bootstrap: [ ConfigComponent ]

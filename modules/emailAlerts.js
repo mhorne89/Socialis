@@ -1,13 +1,13 @@
 // Node modules
-var nodemailer = require('nodemailer');
+const nodemailer = require('nodemailer');
 
 
 module.exports = function(message, error) {
   console.log(message, error);
   
-  var transporter = nodemailer.createTransport('smtps://' + process.env.EMAIL_ADDRESS + ':' + process.env.EMAIL_PASS + '@' + process.env.EMAIL_HOST);
+  const transporter = nodemailer.createTransport('smtps://' + process.env.EMAIL_ADDRESS + ':' + process.env.EMAIL_PASS + '@' + process.env.EMAIL_HOST);
 
-  var emailTemplate = {
+  const emailTemplate = {
     from: process.env.EMAIL_ADDRESS,
     to: process.env.EMAIL_ADDRESS,
     subject: 'Error!!',

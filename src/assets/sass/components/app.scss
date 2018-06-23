@@ -5,7 +5,7 @@
 * are not restriced to a single component.
 */
 
-body { background: $colorOffWhite }
+body { background: $colorBackground }
 
 #app {
   .submit, .button { @extend %button }

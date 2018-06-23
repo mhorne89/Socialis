@@ -1,0 +1,12 @@
+<conichi-notification [data]="notification"></conichi-notification>
+
+<div id="register">
+  <div class="inner-container">
+    <conichi-text placeholder="First Name" [(model)]="user.first_name"></conichi-text>
+    <conichi-text placeholder="Last Name" [(model)]="user.last_name"></conichi-text>
+    <conichi-text placeholder="Email" [(model)]="user.email"></conichi-text>
+    <conichi-text placeholder="Password" type="password" [(model)]="user.password"></conichi-text>
+
+    <a (click)="registerUser()" class="button">Register</a>
+  </div>
+</div>

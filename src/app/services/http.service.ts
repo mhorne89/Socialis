@@ -42,21 +42,14 @@ export class HttpService {
   * @return {Object} status
   */
   getConfig() {
-    return this.http.get(`${ this.nodeUrl }/get-config`)
-      .map(this.handleSuccess).catch(this.handleError);
+    return this.http.get(`${ this.nodeUrl }/get-config`);
   }
 
   /*
-  * Shared function to handle successful response
-  * @return {Object} json
+  * Posts new user registration to API
+  * @return {Object} user
   */
-  private handleSuccess (res: Response) { return res.json(); }
-
-  /*
-  * Shared function to handle error response
-  * @return {Object} json
-  */
-  private handleError (error: Response | any) {
-    return Observable.throw(JSON.parse(error._body).error);
+  registerUser(user) {
+    return this.http.post(`${ this.nodeUrl }/users/register`, { user });
   }
 }

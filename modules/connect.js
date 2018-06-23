@@ -1,15 +1,8 @@
-/**
- * Connection for MySQL DB 
- */
+/* Connection to MongoDB */
 
-var mysql = require('mysql');
+var mongoose = require('mongoose');
 require('dotenv').config();
 
-module.exports = mysql.createPool({
-    connectionLimit : 2,
-    host: process.env.MYSQL_HOST,
-    user: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASS,
-    database: process.env.MYSQL_DB,
-    port: process.env.MYSQL_PORT
-});
+module.exports = mongoose.connect(
+  `mongodb://${ process.env.MONGOOSE_USER }:${ process.env.MONGOOSE_PASS }@dev-shard-00-00-t7l3r.mongodb.net:27017,dev-shard-00-01-t7l3r.mongodb.net:27017,dev-shard-00-02-t7l3r.mongodb.net:27017/test?ssl=true&replicaSet=dev-shard-0&authSource=admin&retryWrites=true`
+);
