@@ -1,32 +1,26 @@
 // Node modules
-var Linkedin = require('node-linked-in');
+const Linkedin = require('node-linked-in');
 
 // Modules
-var mailError = require('./emailAlerts');
+const mailError = require('./emailAlerts');
 
 // Config
 require('dotenv').config();
 
-exports.post = function(body) {
-  var linkedin = new Linkedin();
+exports.post = (body) => {
+  const linkedin = new Linkedin();
 
   linkedin.authenticate({ token: process.env.LINKEDIN_ACCESS_TOKEN });
 
-  var postData = {
+  const postData = {
     data: {
-      "comment": body.title + ': ' + body.link,
-      "visibility": {
-        "code": "anyone"
-      }
+      "comment": `${ body.title }: ${ body.link }`,
+      "visibility": { "code": "anyone" }
     }
   };
 
-  linkedin.shares.add(postData, function(err, res) {
-    if (err) {
-      mailError('Error posting to Linkedin', err);
-      return;
-    }
-
+  linkedin.shares.add(postData, (err, res) => {
+    if (err) return mailError('Error posting to Linkedin', err);
     console.log('Linkedin: ', res.updateUrl);
   });
 };

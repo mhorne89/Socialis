@@ -10,17 +10,26 @@ import { ConfigComponent } from '../components/config.component';
 // Import custom services
 import { HttpService } from '../services/http.service';
 
+// Import custom resolvers
+import { AuthResolver } from '../resolvers/auth.resolver';
+
 // Define routes
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'config', component: ConfigComponent }
+  { path: 'config',
+   component: ConfigComponent,
+   resolve: { auth: AuthResolver }
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [ HttpService ]
+  providers: [
+    HttpService,
+    AuthResolver
+  ]
 })
 export class AppRoutingModule { }

@@ -1,5 +1,6 @@
 // Import Angular modules
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
 
 
 /*
@@ -15,12 +16,16 @@ import { Component } from '@angular/core';
 })
 
 export class ConfigComponent {
-  public config: Object;
+  public session: Object;
   public feed: string;
   public keywords: string;
+  public config = {
+    feeds: [],
+    keywords: []
+  };
 
-  constructor() {
-    this.config = { feeds: [], keywords: [] };
+  constructor(private store: Store<any>) {
+    store.select('session').subscribe(session => this.session = session);
   }
 
   addToFeeds() {

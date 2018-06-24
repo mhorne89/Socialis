@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from '../routers/routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreModule } from '@ngrx/store';
 
 // Import custom modules
 import { LoginModule } from './login.module';
@@ -13,6 +14,9 @@ import { ConfigModule } from './config.module';
 
 // Import custom components
 import { AppComponent } from '../components/app.component';
+
+// Import reducers
+import { session } from '../reducers/session.reducer';
 
 
 /*
@@ -35,7 +39,10 @@ import { AppComponent } from '../components/app.component';
     BrowserAnimationsModule,
     LoginModule,
     RegisterModule,
-    ConfigModule
+    ConfigModule,
+    StoreModule.forRoot({
+      session: session
+    })
   ],
   declarations: [ AppComponent ],
   bootstrap: [ AppComponent ]

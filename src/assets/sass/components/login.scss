@@ -1,3 +1,14 @@
 #login {
+  h1 {
+    font-family: $fontFamilyLight;
+    font-size: 4em;
+  }
+
   .button { margin-top: 1em }
+  
+  a {
+    display: block;
+    margin-top: 1em;
+    text-align: center;
+  }
 }

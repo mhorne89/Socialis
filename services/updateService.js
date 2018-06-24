@@ -1,26 +1,26 @@
 // Node modules
-const feed = require("feed-read")
-const _ = require("lodash")
-const scrape = require('html-metadata')
+const feed = require("feed-read");
+const _ = require("lodash");
+const scrape = require('html-metadata');
 
 // Modules
-const connection = require("../modules/connect")
-const feeds = require("../modules/feeds")
-const keywords = require("../modules/keywords")
+const connection = require("../modules/connect");
+const feeds = require("../modules/feeds");
+const keywords = require("../modules/keywords");
 
-module.exports = function() {
-  _.forEach(feeds, function(key){
-    feed(key, function(err, articles) {
-      if (err) { console.log(err); return; }
-      if (!articles) { return; }
+module.exports = () => {
+  _.forEach(feeds, (key) => {
+    feed(key, (err, articles) => {
+      if (err) return console.log(err);
+      if (!articles) return;
 
-      _.forEach(articles, function(key, value) {
+      _.forEach(articles, (key, value) => {
         var body = _.pick(key, ['title', 'content', 'link']);
 
-        _.forEach(keywords, function(key, value){
+        _.forEach(keywords, (key, value) => {
           if (_.includes(body.title.toLowerCase(), ' ' + key + ' ')) {
             
-            scrape(body.link).then(function(metadata){
+            scrape(body.link).then((metadata) => {
               if (metadata.general.image) {
                 body.image = metadata.general.image;
                 connection.query('INSERT INTO articles SET ?', body, function(err, result) { if (err) { console.log(err); } else { console.log(result); } });

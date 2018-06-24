@@ -1,9 +1,9 @@
 // Node modules
-var FB = require('fb');
-var fb = new FB.Facebook();
+const FB = require('fb');
+const fb = new FB.Facebook();
 
 // Modules
-var mailError = require('./emailAlerts');
+const mailError = require('./emailAlerts');
 
 // Config
 require('dotenv').config();
@@ -12,12 +12,9 @@ require('dotenv').config();
 FB.setAccessToken(process.env.FACEBOOK_ACCESS_TOKEN);
 
 
-exports.post = function(body) {
-  FB.api(process.env.FACEBOOK_ID + '/feed', 'post', { message: body.title, link: body.link }, function (res) {
-    if(!res || res.error) {
-      mailError('Error posting to Facebook', !res ? 'error occurred' : res.error);
-      return;
-    }
-    console.log('Facebook: ', res);
+exports.post = (body) => {
+  FB.api(`${ process.env.FACEBOOK_ID }/feed`, 'post', { message: body.title, link: body.link }, (res) => {
+    if(!res || res.error)
+      return mailError('Error posting to Facebook', !res ? 'error occurred' : res.error);
   });
 };

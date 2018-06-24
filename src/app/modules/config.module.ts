@@ -1,10 +1,10 @@
 // Import Angular modules
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from '../routers/routing.module';
-import { ConichiTextModule } from 'conichi-material';
+import { ConichiTextModule, ConichiSidebarModule } from 'conichi-material';
 
 // Import custom components
 import { ConfigComponent } from '../components/config.component';
@@ -27,9 +27,11 @@ import { ConfigComponent } from '../components/config.component';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    ConichiTextModule
+    ConichiTextModule,
+    ConichiSidebarModule
   ],
   declarations: [ ConfigComponent ],
-  bootstrap: [ ConfigComponent ]
+  bootstrap: [ ConfigComponent ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class ConfigModule { }

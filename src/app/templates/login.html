@@ -2,9 +2,13 @@
 
 <div id="login">
   <div class="inner-container">
+    <h1>SOCIALIS</h1>
+
     <conichi-text placeholder="Email" [(model)]="user.email"></conichi-text>
     <conichi-text placeholder="Password" type="password" [(model)]="user.password"></conichi-text>
 
     <a (click)="loginUser()" class="button">Login</a>
+
+    <a routerLink="/register">Register</a>
   </div>
 </div>

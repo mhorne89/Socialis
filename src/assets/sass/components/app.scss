@@ -9,4 +9,6 @@ body { background: $colorBackground }
 
 #app {
   .submit, .button { @extend %button }
+  
+  conichi-sidebar .footer { display: none }
 }
